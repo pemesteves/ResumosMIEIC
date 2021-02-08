@@ -1,0 +1,62 @@
+\documentclass[../resumosMNUM.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+\subsection{Método de Euler - 1ª ordem}
+
+Calcula-se \(y'_n = f(x_n, y_n)\), que é a inclinação da curva no ponto $(x_n, y_n)$; calcula-se o ponto seguinte, sendo h o passo :
+
+\begin{cases}
+    $y_{n+1} = y_n + h * y'_n$\\ $x_{n+1} = x_n + h$
+\end{cases}
+
+\subsection{Método de Euler Melhorado}
+
+A partir de 2 pontos $(x_{n-1}, y_{n-1})$ e $(x_n, y_n)$, calcula-se $(x_{n+1}, y_{n+1})$ do seguinte modo:
+\begin{itemize}
+    \item Calcula-se um valor previsto $p_{n+1} = y_{n-1} + 2h.y'_n$
+    \item Com este ponto, calcula-se $p´_{n+1} = f(x_{n+1}, p_{n+1})$
+    \item Calcula-se também o valor corrigido $y_{n+1} = y_n + \frac{p'_{n+1}+y'_n}{2}$
+    \item Por fim, prepara-se o passo seguinte: $y'_{n+1} = f(x_{n+1}, y_{n+1})$
+\end{itemize}
+
+
+\[x_i + \frac{1}{2} = x_i + \frac{h}{2}\]
+
+\[y_i + \frac{1}{2} = y_i + \frac{h}{2}.f'(x_i, y_i)\]
+
+\[y_{i+1} = y_i + f'(x_i + \frac{1}{2}, y_i + \frac{1}{2}).h\]
+
+\[x_{i+1} = x_i + h\]
+
+\subsection{Runge-Kutta 2ª ordem}
+
+\[y' = f(x_n, y_n)\]
+
+\begin{cases}
+    $y_{n+1} = y_n + h.f(x_n + \frac{h}{2}, y_n + \frac{h}{2}.f(x_n, y_n))$ \\
+    $x_{n+1} = x_n + h$ 
+\end{cases}
+
+
+\subsection{Runge-Kutta 4ª ordem}
+
+\[\delta y_1 = h.f(x_n, y_n)\]
+
+\[\delta y_2 = h.f(x_n + \frac{h}{2}, y_n + \frac{\delta y_1}{2})\]
+
+\[\delta y_3 = h.f(x_n + \frac{h}{2}, y_n + \frac{\delta y_2}{2})\]
+
+\[\delta y_4 = h.f(x_n + h, y_n + \delta y_3)\]
+
+\begin{cases}
+    $y_{n+1} = y_n + \frac{1}{6}.\delta y_1 + \frac{1}{3}.\delta y_2 + \frac{1}{3}.\delta y_3 + \frac{1}{6}.\delta y_4   $ \\
+    $x_{n+1} = x_n + h$ 
+\end{cases}
+
+\end{document}
+

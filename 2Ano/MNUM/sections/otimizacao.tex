@@ -1,0 +1,53 @@
+\documentclass[../resumosMNUM.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+\subsection{Método dos terços}
+
+A partir de $x_1$ e $x_2$, calculam-se $x_3$ e $x_4$ (pontos que dividem o intervalo $[x_1, x_2]$ em 3 partes iguais).
+
+Se $f(x_4) < f(x_3)$, então $x_1 = x_3$; senão se $f(x_4) > f(x_3)$, então $x_2 = x_4$.
+
+\subsection{Regra Áurea}
+
+A partir de $x_1$ e $x_2$, calculam-se $x_3 = x_1 + A.(x_2 - x_1)$ e $x_4 = x_1 + B.(x_2 - x_1)$, tais que $B = \frac{\sqrt{5} - 1}{2}$ e $A = B^2$.
+
+Se $f(x_3) < f(x_4)$, então $x_2 = x_4$; senão se $f(x_3) > f(x_4)$, então $x_1 = x_3$.
+
+\subsection{Método do Gradiente}
+
+\[x_j^{(i+1)} = x_j^{(i)} - h.\frac{\delta f^{(i)}}{\delta x_j} (j=1,2,...,n), \] em que h é o passo.
+
+\paragraph{}
+
+Se $f(x^{(i+1)}) < f(x^{(i)})$, dá-se novo passo com $h = 2*h$.
+
+\paragraph{}
+
+Se $f(x^{(i+1)}) > f(x^{(i)})$, não se efetua o passo e faz-se nova tentativa com $h = \frac{h}{2}$.
+
+\subsection{Método da Quádrica}
+
+Só é aplicável nas vizinhanças imediatas do mínimo (ou máximo).
+
+\[x_i^{n+1} = x_n - H^{-1}x\nabla f(x_i^n), \]
+sendo $H^{-1}$ o inverso do determinante da matriz hessiana.
+
+\subsection{Método de Levenberg-Marquardt}
+
+O passo é a soma dos passos dos 2 método anteriores:
+
+\[x_{n+1} = x_n - h_{L.M},\]
+
+tal que $h_{L.M} = H^{-1}\nabla + \lambda\nabla$, sendo $\lambda$ o parâmetro a determinar mediante a evolução do método:
+\begin{itemize}
+    \item Se $f(x_{n+1}) < f(x_n)$, $\lambda = \frac{\lambda}{2}$
+    \item Senão se $f(x_{n+1}) > f(x_n)$, $h = h * 2$
+\end{itemize}
+
+\end{document}
+

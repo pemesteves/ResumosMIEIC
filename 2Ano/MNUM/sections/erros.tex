@@ -1,0 +1,25 @@
+\documentclass[../resumosMNUM.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+\textbf{Vírgula flutuante: } \(mantissa*base^{expoente}\)
+\begin{itemize}
+    \item \(\frac{1}{base} \leq |mantissa| < 1\)
+    \item \(\pm 1.f * 2^e\) - Dois tipos: precisão simples (32 bits) e dupla (64 bits)
+    \begin{itemize}
+        \item f: parte fracionária da mantissa
+        \item \(e = expoente * vies\)
+    \end{itemize}
+\end{itemize}
+
+\paragraph{}
+\textbf{Erro Absoluto: } \(x_{exato} - x_{aproximado}\)
+
+\paragraph{}
+\textbf{Erro Relativo: } \(\frac{x_{exato} - x_{aproximado}}{x_{exato}}\)
+\end{document}
+

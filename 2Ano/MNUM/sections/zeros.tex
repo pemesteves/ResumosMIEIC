@@ -1,0 +1,80 @@
+\documentclass[../resumosMNUM.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+\subsection{Método da Bisseção}
+
+A partir de um intervalo, calcula-se o seu ponto médio. Se \(f(\frac{x_1+x_2}{2})\) for nulo, encountrou-se a raíz; se não, reduz-se o intervalo.
+
+C++:
+\begin{lstlisting}
+    for(int n= 0; n < ...; n++) {
+        m = (a + b) / 2;
+        if(f(a) * f(m) < 0)
+            b = m;
+        else if(f(a) * f(m) > 0)
+            a = m;
+        else
+            break;
+    }
+\end{lstlisting}
+
+Critérios de Paragem:
+\begin{enumerate}
+    \item \(|x_1 - x_2| \leq \epsilon\) - critério de precisão absoluta
+    \item \(\frac{|x_1 - x_2|}{x_1} \leq \epsilon\) ou \(\frac{|x_1 - x_2|}{x_2} \leq \epsilon\) - critério de precisão relativa
+    \item \(|f(x_1) - f(x_2)| \leq \epsilon\) - critério de anulação da função
+    \item \(n = N\) - critério do número de iterações
+    \begin{itemize}
+        \item \(n \leq (número de bits da mantissa) + \log_2(b - a)\) -> a e b são os extremos do intervalo 
+        \item ou \(n \leq 3.3 * (número de dígitos da mantissa) + \log_{10}(b - a)\)
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Método da Corda ou Falsa Posição}
+
+Calcula-se a nova posição traçando-se uma corda entre os dois pontos.
+
+\[m = \frac{a * f(b) - b * f(a)}{f(b) - f(a)}\]
+
+C++:
+\begin{lstlisting}
+    for(int n = 0; n < ...; n++) {
+        w = (a * f(b) - b * f(a))/(f(b) - f(a));
+        if(f(a) * f(w) < 0)
+            b = w;
+        else if(f(a) * f(w) > 0)
+            a = w;
+        else
+            break;
+    }
+\end{lstlisting}
+
+\subsection{Método da Tangente ou Newton}
+
+Parte apenas de um valor plausível, substituindo este valor pelo zero da tangente neste ponto
+
+\[x_{k + 1} = x_k - \frac{f(x_k)}{f'(x_k)}\]
+
+\begin{itemize}
+    \item Implica conhecimento prévio da derivada e \(f'(x_k) \neq 0\)
+\end{itemize}
+
+\subsection{Método de Picard-Peano}
+
+Transforma-se uma equação \(f(x) = 0\) em \(x = g(x)\), tal que g(x) não seja divergente. Através da equação \(x_n = g(x_{n - 1})\) calculam-se pontos sucessivos até se chegar perto do 0
+
+\begin{itemize}
+    \item Condição de convergência: \(g'(x) < 1\)
+    \item Para sistemas de equação:  \begin{cases} $x = g_1(x, y)$ \\ $y = g_2(x, y)$ \end{cases}
+    \newline
+    Todas as derivadas parcias têm que convergir: \(\frac{\delta g_1}{\delta x}\), \(\frac{\delta g_1}{\delta y}\), \(\frac{\delta g_2}{\delta x}\), \(\frac{\delta g_2}{\delta y}\)
+
+\end{itemize}
+
+\end{document}
+

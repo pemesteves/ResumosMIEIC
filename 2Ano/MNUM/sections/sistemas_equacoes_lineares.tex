@@ -1,0 +1,71 @@
+\documentclass[../resumosMNUM.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+\subsection{Método da Eliminação Gaussiana}
+
+Divide-se a 1ª equação por \(a_{11}\), para tornar unitário o 1º coeficiente. Multiplica-se esta equação por \(-a_{22}\), e soma-se à primeira; resultado será a nova 2ª equação; repete-se este processo para todas as linhas. Repete-se todos os passes utilizando os elementos da diagonal.
+
+C++: (útil definir rowop como no Maxima
+\begin{lstlisting}
+void rowop(vector<vector<double>> &matrix, size_t i, size_t j, double value) {
+    for(size_t k = 0; k < matrix[0].size(); k++) {
+        matrix[i][k] -= value * matrix[j][k];
+    }
+}
+
+...
+
+    for(size_t i = 0; i < matrix.size(); i++) {
+        rowop(matrix, i, i, 1 - 1/matrix[i][i]);
+        for(size_t j = 0; j < matrix.size(); j++) {
+            if(i != j)
+                rowop(matrix, j, i, matrix[j][i]);
+        }
+    }
+\end{lstlisting}
+
+\paragraph{}
+
+O Erro no Método de Gauss:
+\begin{itemize}
+    \item \textbf{Estabilidade Externa} (potenciais erros dos coeficientes e dos termos constantes): \(A.\delta x = \delta b - \delta A.x\)
+    \item \textbf{Estabilidade Interna} (erros de arredondamento no decorrer do cálculo): \(A.\delta = b - A.x_0 = \epsilon\) (\(\epsilon\) = coluna dos resíduos)
+\end{itemize}
+
+\paragraph{}
+
+Mínimização dos erros:
+\begin{itemize}
+    \item \textbf{Pivotagem Parcial} (eliminar coluna com a equação com maior coeficiente nessa coluna)
+    \item \textbf{Pivotagem Total} (eliminar com a equação não tratada com maior coeficiente)
+    \item \textbf{Escalagem de Linhas}
+    \item \textbf{Escalagem de Colunas}
+\end{itemize}
+
+\subsection{Método de Khaletsky}
+
+Dado um sistema \(A.x = b\), representa-se A por um produto \(L.U\), \(A = L.U\), e calcula-se x através dos sistems \(L.y = b\) e \(U.x = y\)
+
+Coeficientes LU:
+\begin{itemize}
+    \item \(l_{i,1} = a_{i,1}\)
+    \item \(l_{i,j} = a_{i,j} - \sum_{k=1}^{j-1}l_{i,k}.u_{k,j} (i \geq j)\)
+    \item \(u_{1,i} = \frac{a_{1,i}}{l_{1,1}}\)
+    \item \(u_{i,j} = \frac{a_{i,j} - \sum_{k=1}^{j-1}l_{i,k}.u_{k,j}}{l_{i,i}} (i < j)\)
+\end{itemize}
+
+\subsection{Método de Gauss-Jacobi}
+
+\[x_i^{(k)} = \frac{1}{a_{i,i}}[-\sum_{j=1,j\neq i}^n a_{i, j} x_j^{(k-1)} + b_i], (1 \leq i \leq n)\]
+
+
+\subsection{Método de Gauss-Seidel}
+
+\[x_i^{(k)} = \frac{1}{a_{i,i}}[-\sum_{j=1,j<i}^n a_{i, j} x_j^{(k)} -\sum_{j=1,j>i}^n a_{i, j} x_j^{(k-1)} + b_i], (1 \leq i \leq n)\]
+
+\end{document}

@@ -1,0 +1,44 @@
+\documentclass[../resumosMNUM.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+\subsection{Regra dos Trapézios - 2ª ordem}
+
+Substitui-se, em cada intervalo, o arco da curva pela sua corda, calculando, em seguida, a área sob a poligonal assim definida.
+
+\[ \int_{x_0}^{x_n} y.\delta x = \frac{h}{2} . [y_0 + 2y_1 + ... + 2y_{n-1} + y_n]\]
+
+\subsection{Controlo do erro}
+
+Quociente de Convergência: \(\frac{S' - S}{S'' - S'} \approx 2^{ordem do método}\)
+
+Erro: \(\epsilon '' = \frac{S'' - S'}{2^{ordem} - 1}\)
+
+\subsection{Regra de Simpson - 4ª ordem}
+
+Em vez de substituir a curva por cordas, substitui-a pelas parábolas definidas por cada trio de pontos.
+
+\[ \int_{x_0}^{x_{2n}} y.\delta x = \frac{h}{3} . [y_0 + 4y_1 + 2y_2 + 4y_3 + ... + 2y_{2n-2} + 4y_{2n-1} + y_{2n}]\]
+
+\paragraph{}
+
+Fórmula de Simpson - Cubatura:
+
+\[h_x = \frac{A - a}{2}\]
+
+\[h_y = \frac{B - b}{2}\]
+
+\[ \int \int f(x, y) \delta x \delta y = \frac{h_x . h_y}{9} . [\sum_0 + 4\sum_1 + 16\sum_2]\]
+
+$\sum_0$: Valores de f nos vértices 
+
+$\sum_1$: Valores de f nos pontos médios dos lados 
+
+$\sum_0$: Valores de f no centro
+
+\end{document}
+
