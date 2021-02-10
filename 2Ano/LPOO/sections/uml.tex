@@ -1,0 +1,185 @@
+\documentclass[../resumosLPOO.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+Diagrama de classes: diagrama estrutural.
+
+\paragraph{}
+
+Mostram as classes do sistema, as suas operações, atributos e relações.
+
+\paragraph{}
+
+Atributos (secção do meio): \lstinline{nome:tipo_do_atributo=valor_por_defeito} (valor por defeito é opcional)
+
+\paragraph{}
+
+Operações (secção de baixo): \lstinline{nome(list_parâmetros):tipo_retornado}
+\begin{itemize}
+    \item Cada parâmetro da lista: \lstinline{nome:tipo}
+    \item Os parâmetros podem ter uma marca "in" ou "out" indicando se é um input ou output
+\end{itemize}
+
+\paragraph{}
+
+Herança: aponta da subclasse para a superclass
+
+\begin{figure}[H]
+    \centering
+    %\resizebox{\textwidth}{!}{
+    \begin{tikzpicture}
+
+    \umlclass[x=0, y=0]{A}
+    {}
+    {}
+
+
+    \umlclass[x=0, y=-2]{B}
+    {}
+    {}
+
+    \umlinherit[]{B}{A}
+
+    \end{tikzpicture}
+    %}
+    \caption{Exemplo Herança\label{fig:inheritance}}
+\end{figure}
+
+\paragraph{}
+
+Classes e métodos abstratos são representados em itálico.
+
+\paragraph{}
+
+Associações bidirecionais: cada lado tem uma multiplicidade.
+
+\begin{figure}[H]
+    \centering
+    %\resizebox{\textwidth}{!}{
+    \begin{tikzpicture}
+
+    \umlclass[x=-2, y=0]{A}
+    {}
+    {}
+
+
+    \umlclass[x=2, y=0]{B}
+    {}
+    {}
+
+    \umlassoc[geometry=-|-, mult1=*, pos1=0.2, mult2=0, pos2=2.8]{A}{B}
+
+    \end{tikzpicture}
+    %}
+    \caption{Exemplo Associação Bidirecional\label{fig:inheritance}}
+\end{figure}
+
+\paragraph{}
+
+Associações unidirecionais: só uma classe sabe que a relação existe - aquela de onde parte a seta.
+
+\begin{figure}[H]
+    \centering
+    %\resizebox{\textwidth}{!}{
+    \begin{tikzpicture}
+
+    \umlclass[x=-2, y=0]{A}
+    {}
+    {}
+
+
+    \umlclass[x=2, y=0]{B}
+    {}
+    {}
+
+    \umluniassoc[geometry=-|-, mult1=*, pos1=0.2, mult2=0, pos2=2.8]{A}{B}
+
+    \end{tikzpicture}
+    %}
+    \caption{Exemplo Associação Unidirecional\label{fig:inheritance}}
+\end{figure}
+
+\paragraph{}
+
+Classe de associação: inclui informação sobre a relação (ligada à associação com ---)
+
+\paragraph{}
+
+Interfaces: classe com <<interface>> antes do nome. 
+
+Implementação de uma interface:
+\begin{figure}[H]
+    \centering
+    %\resizebox{\textwidth}{!}{
+    \begin{tikzpicture}
+
+    \umlinterface[x=0, y=2.5]{A}
+    {}
+    {}
+
+
+    \umlclass[x0, y=0]{B}
+    {}
+    {}
+
+    \umlimpl[]{B}{A}
+
+    \end{tikzpicture}
+    %}
+    \caption{Exemplo Implementação Interface\label{fig:inheritance}}
+\end{figure}
+
+\paragraph{}
+
+Agregação: modela um todo para as partes.
+\begin{figure}[H]
+    \centering
+    %\resizebox{\textwidth}{!}{
+    \begin{tikzpicture}
+
+    \umlclass[x=0, y=2.5]{A}
+    {}
+    {}
+
+
+    \umlclass[x0, y=0]{B}
+    {}
+    {}
+
+    \umlaggreg[]{A}{B}
+
+    \end{tikzpicture}
+    %}
+    \caption{Exemplo Agregação\label{fig:inheritance}}
+\end{figure}
+
+\paragraph{}
+
+Composição: forma mais forte de agregação. O todo só existe com as suas partes.
+\begin{figure}[H]
+    \centering
+    %\resizebox{\textwidth}{!}{
+    \begin{tikzpicture}
+
+    \umlclass[x=0, y=2.5]{A}
+    {}
+    {}
+
+
+    \umlclass[x0, y=0]{B}
+    {}
+    {}
+
+    \umlcompo[]{A}{B}
+
+    \end{tikzpicture}
+    %}
+    \caption{Exemplo Composição\label{fig:inheritance}}
+\end{figure}
+
+\end{document}
+

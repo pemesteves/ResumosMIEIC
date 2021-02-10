@@ -1,0 +1,171 @@
+\documentclass[../resumosLPOO.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+\subsection{Factory Method}
+
+Define uma interface para criar um objeto, mas deixa as subclasses decidir qual classe será instanciada.
+
+Usa-se quando:
+\begin{itemize}
+    \item uma classe não consegue antecipar a classe dos objetos a serem criados.
+    \item uma classe pretende que as subclasses especifiquem os objetos a criar.
+\end{itemize}
+
+Elimina a necessidade de ligar classes específicas ao código.
+
+
+\subsection{Composite}
+
+Compôr objetos em estruturas de árvores para representar hierarquias parte-todo. Permite que os clientes tratem objetos e composições uniformemente.
+
+Usa-se quando:
+\begin{itemize}
+    \item se pretende representar hierarquias parte-todo de objetos.
+    \item se pretende que os clientes ignorem a diferença entre composições e objetos individuais.
+\end{itemize}
+
+Tipos primitivos podem ser compostos em objetos complexos.
+
+\subsection{Command}
+
+Encapsular um pedido como um objeto permitindo parametrizar clientes com diferentes pedidos, filas ou registo de pedidos e suportar operações reversíveis. 
+
+Usa-se quando:
+\begin{itemize}
+    \item se especifica, enfileira e executa pedidos em momentos diferentes.
+    \item se suporta operações de undo/redo.
+    \item se estrutura um sistema envolvido em operações de alto nível baseadas em operações primitivas.
+\end{itemize}
+
+Comandos podem ser estendidos e manipulados como qualquer outro objeto.
+
+É fácil adicionar comandos. 
+
+Tipos primitivos podem ser compostos em objetos complexos.
+
+
+\subsection{Observer}
+
+Define uma dependência um-para-muitos entre objetos para que quando um objeto muda o seu estado todos os dependentes são notificados e atualizados.
+
+Usa-se quando:
+\begin{itemize}
+    \item uma abstração tem dois aspetos, um dependente do outro.
+    \item a mudança de um objeto implica a mudança de outro.
+    \item um objeto deve notificar outros sem assumir quem são.
+\end{itemize}
+
+Emparelhamento entre sujeito e observador.
+
+Suporte para comunicação.
+
+Atualizações inesperadas.
+
+
+\subsection{Strategy}
+
+Define-se uma família de algoritmos, encapsula-se cada um e fazem-se permutáveis. Permite que o algoritmo varie dependendo do cliente que o usa.
+
+Usa-se quando:
+\begin{itemize}
+    \item muitas classes relacionadas só diferem no seu comportamento.
+    \item se precisa de variantes diferentes de um algoritmo.
+    \item um algoritmo usa dados que um cliente não deve conhecer.
+    \item uma classe define muitos comportamentos que aparecem em múltiplas declarações condicionais.
+\end{itemize}
+
+Alternativa a ter subclasses.
+
+Elimina condições e providencia implementações diferentes.
+
+
+\subsection{State}
+
+Permite que um objeto mude o seu comportamento quando os seus estados internos mudam. O objeto aparecerá para mudar a sua classe.
+
+Usa-se quando:
+\begin{itemize}
+    \item o comportamento de um objeto depende do seu estado e precisa de o mudar em run-time.
+    \item as operações têm grandes condições que dependem de uma ou mais enumerações.
+\end{itemize}
+
+Faz com que as transições entre estados sejam explícitas.
+
+
+\subsection{Adapter}
+
+Converte a interface de uma classe noutra interface esperada pelo cliente. Permite que classes trabalhem juntas e não o poderiam fazer noutro caso devido à incompatibilidade de interfaces.
+
+Usa-se quando:
+\begin{itemize}
+    \item se quer utilizar uma classe existente e a sua interface não combina com a que se precisa.
+    \item se quer criar uma classe reutilizável que trabalhe com classes imprevistas.
+\end{itemize}
+
+
+\subsection{Decorator}
+
+Anexar responsabilidades adicionais a um objeto dinamicamente. Providencia uma alternativa flexível a criar subclasses por extensão.
+
+Usa-se quando:
+\begin{itemize}
+    \item se quer adicionar responsabilidades a objetos individuais dinamicamente.
+    \item se quer retirar responsabilidades.
+    \item estender por criação de subclasses é impraticável.
+\end{itemize}
+
+Mais flexível que herança estática. Evita classes com muitas funções/responsabilidades.
+
+
+\subsection{Singleton}
+
+Assegurar que uma classe só tem uma instância e providenciar uma forma global para a aceder.
+
+Usa-se quando:
+\begin{itemize}
+    \item tem que haver uma e uma só instância da classe.
+    \item a única instância tem que ser estensível para subclasse.
+\end{itemize}
+
+É um considerado um \textbf{anti-pattern}:
+\begin{itemize}
+    \item difícil de testar.
+    \item difícil de implementar com multi-threading.
+\end{itemize}
+
+O que fazer em vez de usar o padrão? Criar uma instância da classe e propagá-la para o sítio onde será utilizada.
+
+
+\subsection{Abstract-Factory}
+
+Providenciar uma interface para a criação de famílias de objetos relacionados ou dependentes sem especificar a classe concreta.
+
+Usa-se quando:
+\begin{itemize}
+    \item um sistema deve ser independente de como os seus produtos são criados, compostos e representados.
+    \item um sistema deve ser configurável com mais do que uma família de produtos.
+\end{itemize}
+
+Isola classes concretas.
+
+Promove a consistência entre os produtos.
+
+É difícil suportar novos tipos de produtos.
+
+subsection{Mode-View-Controller (MVC)}
+
+Divide o sistema em 3 partes:
+\begin{itemize}
+    \item o modela representa os dados.
+    \item a vista mostra o modelo e envia ações do utilizador ao controlador.
+    \item o controlador providencia o modelo à vista e interpreta as ações do utilizador.
+\end{itemize}
+
+
+\end{document}
+

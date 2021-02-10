@@ -1,0 +1,39 @@
+\documentclass[../resumosLPOO.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+Um code smell nem sempre indica um problema, não é um problema.
+
+Alguns code smells:
+\begin{itemize}
+    \item \textbf{Long Method}: método com muitas linhas.
+    \item \textbf{Large Class}: classe contém muitos atributos/métodos/linhas de código.
+    \item \textbf{Long Parameter List}: mais de 3 ou 4 parâmetros por método.
+    \item \textbf{Data Clumps}: partes diferentes do código contêm o mesmo grupo de variáveis.
+    \item \textbf{Switch Statements}: operações if/switch complexas.
+    \item \textbf{Refused Biquest}: subclasse só usa alguns métodos/atributos herdados da superclasse.
+    \item \textbf{Alternative Classes with Different Interfaces}: duas classes têm funções idênticas, mas nomes de métodos diferentes.
+    \item \textbf{Divergent Change}: mudar muitos métodos não relacionados quando se faz alterações numa classe.
+    \item \textbf{Lazy Class}: classes que não fazem muita coisa.
+    \item \textbf{Data Class}: classe que apenas contém atributos e métodos para lhes aceder.
+    \item \textbf{Feature Envy}: método que acessa mais aos dados de outro objeto que aos seus dados.
+\end{itemize}
+
+Técnicas de Refactoring:
+\begin{itemize}
+    \item Extract Method / Class
+    \item Inline Method / Class
+    \item Extract Variable
+    \item Split Temporary Variable
+    \item Decompose Conditional
+    \item Consolidate Duplicate Conditional Fragments
+    \item Replace Nested Conditional with Guard Clauses
+    \item Introduce Null Object
+\end{itemize}
+
+\end{document}
+

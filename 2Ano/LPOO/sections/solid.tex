@@ -1,0 +1,72 @@
+\documentclass[../resumosLPOO.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+\textbf{SOLID}:
+\begin{itemize}
+    \item \textbf{S} - The \textbf{S}ingle Responsibility Principle (SRP)
+    \begin{itemize}
+        \item Cada módulo do software só deve ter uma e uma só razão para mudar.
+    \end{itemize}
+    \item \textbf{O} - The \textbf{O}pen-Closed Principle (OCP)
+    \begin{itemize}
+        \item Um módulo deve ser aberto para extensão, mas fechado para modificação
+    \end{itemize}
+    \item \textbf{L} - The \textbf{L}iskov Substitution Principle (LSP)
+    \begin{itemize}
+        \item Subclasses devem ser subtituíveis pelas suas classes-base
+    \end{itemize}
+    \item \textbf{I} - The \textbf{I}nterface Segregation Principle (ISP)
+    \begin{itemize}
+        \item Muitas interfaces específicas de clientes são melhores que uma interface de propósito geral
+    \end{itemize}
+    \item \textbf{D} - The \textbf{D}ependency Inversion Principle (DIP)
+    \begin{itemize}
+        \item Módulos de alto nível não devem depender de módulos de baixo nível. Ambos devem depender de abstrações.
+        \item Abstrações não devem depender de detalhes. Detalhes devem depender das abstrações.
+    \end{itemize}
+\end{itemize}
+
+\paragraph{}
+
+Princípios da Arquitetura em Pacotes (packages):
+\begin{itemize}
+    \item The Release Reuse Equivalency Principle
+    \begin{itemize}
+        \item Código não deve ser reutilizável através da cópia de uma classe para outra
+        \item Só componentes lançadas através de um sistema de tracking podem ser reutilizáveis
+    \end{itemize}
+    \item The Common Closure Principle (CCP)
+    \begin{itemize}
+        \item Classes que mudam juntas, devem estar juntas
+    \end{itemize}
+    \item The Common Reused Principle (CRP)
+    \begin{itemize}
+        \item Classes que não são reutilizáveis em conjunto não devem estar no mesmo grupo (package)
+    \end{itemize}
+\end{itemize}
+
+\paragraph{}
+
+Princípios do Agrupamento de Pacotes (packages):
+\begin{itemize}
+    \item The Acyclic Dependencies Principle (ADP)
+    \begin{itemize}
+        \item As dependências entre pacotes não podem formar ciclos
+    \end{itemize}
+    \item The Stable Dependencies Principle (SDP)
+    \begin{itemize}
+        \item Depender da direção da estabilidade. Precisa-se de packages "fáceis de mudar" (instáveis) para alterar facilmente o software
+    \end{itemize}
+    \item The Stable Abstractions Principle (SAP)
+    \begin{itemize}
+        \item Pacotes estáveis devem ser abstratos
+    \end{itemize}
+\end{itemize}
+
+\end{document}
+

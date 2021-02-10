@@ -1,0 +1,55 @@
+\documentclass[../resumosLPOO.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+Diagrama de sequência: diagrama comportamental.
+
+\paragraph{}
+
+Mostra a interação entre os objetos numa ordem sequencial.
+
+\paragraph{}
+
+Lifeline: elemento com nome que representa um indivíduo na interação.
+
+\paragraph{}
+
+Linha vertical representa o tempo (de cima para baixo).
+
+\paragraph{}
+
+Actor: sistema ou pessoa que está fora do escopo do sistema.
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{umlseqdiag}
+            \umlactor[class=A]{a}
+            \umlcreatecall[class=E, x=8]{a}{e}
+            \begin{umlcall}[op=op(), name=test, type=synchron, return=6, dt=7, fill=red!10]{a}{e}
+            \end{umlcall}
+        \end{umlseqdiag}
+    \end{tikzpicture}
+\end{center}
+
+\paragraph{}
+
+Mensagens: seta a partir do objeto que envia para o que recebe. Nome do método por cima da seta.
+Retorno é opcional e representa-se com uma seta a tracejado.
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{umlseqdiag}
+            \umlactor[class=A]{a}
+        \end{umlseqdiag}
+    \end{tikzpicture}
+\end{center}
+
+
+
+
+\end{document}
+

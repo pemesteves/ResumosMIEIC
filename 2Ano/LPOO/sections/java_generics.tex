@@ -1,0 +1,53 @@
+\documentclass[../resumosLPOO.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+Genéricos providenciam Type-safety.
+
+\paragraph{}
+
+Type Variable: identificador não qualificado (ex: <T>).
+\begin{itemize}
+    \item Nomes:
+    \begin{itemize}
+        \item \textbf{E} - Elemento
+        \item \textbf{K} - Chave (Key)
+        \item \textbf{N} - Número
+        \item \textbf{T} - Tipo (S, U, V.. -> 2º, 3º e 4º tipos)
+        \item \textbf{V} - Valor
+    \end{itemize}
+\end{itemize}
+
+\paragraph{}
+
+Métodos genéricos: \lstinline{public <T> void arrayToList(T[] a, List<T> l)}
+
+\paragraph{}
+
+Classes genéricas: \lstinline{pubic class Box<T>}
+
+É possível criar classes que estendem tipos genéricos.
+
+\paragraph{}
+
+Variância:
+\begin{itemize}
+    \item \textbf{Covariância}: preserva a ordem dos tipos (aceita subtipos) -> tipos de Java.
+    \item \textbf{Contravariância}: troca a ordem dos tipos (aceita supertipos).
+    \item \textbf{Invariância}: só aceita o tipo específico -> Java Generics.
+\end{itemize}
+
+\paragraph{}
+
+Wildcards: 
+\begin{itemize}
+    \item em vez de <T> é possível utilizar <?> (tipo desconhecido).
+    \item possível utilizar <? extends Animal> (variante) ou <? super Animal> (contravariante).
+\end{itemize}
+
+\end{document}
+

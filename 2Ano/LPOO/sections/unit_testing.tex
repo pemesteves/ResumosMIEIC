@@ -1,0 +1,60 @@
+\documentclass[../resumosLPOO.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+Testes black-box: estrutura interna é desconhecida ou não considerada.
+
+\paragraph{}
+
+Testes white-box: o design é baseado na estrutura interna para que o número máximo de "caminhos" do código sejam testados.
+
+\paragraph{}
+
+\textbf{Unit Testing}:
+\begin{itemize}
+    \item testar unidades individuais de software
+    \item código necessita de ser modular, o que o faz ser reutilizável
+\end{itemize}
+
+\paragraph{}
+
+\textbf{Princípios FIRST}:
+\begin{itemize}
+    \item \textbf{F}ast: devem ser rápidos.
+    \item \textbf{I}solated/\textbf{I}ndependent: só se testa uma unidade de cada vez. Ordem não interessa.
+    \item \textbf{R}epeatable: não devem depender do ambiente (time, random values, ...).
+    \item \textbf{S}elf-validating: não é necessário verificar à mão.
+    \item \textbf{T}horough/\textbf{T}imely: devem cobrir todos os casos de uso.
+\end{itemize}
+
+\paragraph{}
+
+Três A's nos quais os testes devem ser divididos:
+\begin{itemize}
+    \item \textbf{A}rrange: inicialização.
+    \item \textbf{A}ct: método a testar é invocado.
+    \item \textbf{A}ssert: é usado um assert para testar o resultado.
+\end{itemize}
+
+\paragraph{}
+
+\textbf{Stubs}: providenciam respostas para as chamadas realizadas.
+
+\paragraph{}
+
+\textbf{Mocks}: pré-programados com expectativas que geram uma especificação das chamadas que se espera receber.
+
+\paragraph{}
+
+\textbf{State Testing}: testar o estado após invocação do método.
+
+\paragraph{}
+
+\textbf{Behaviour Testing}: testar o comportamento do método.
+
+\end{document}
+
