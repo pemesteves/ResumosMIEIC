@@ -1,0 +1,60 @@
+\documentclass[../resumosLTW.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+\subsection{Path Traversal Attack}
+
+Utilização de .. e / para aceder a ficheiros e diretórios que não devem ser acedidos.
+
+\subsection{SQL Injection}
+
+Injeção e queries SQL a partir de dados de input.
+
+\subsection{Account Lockout}
+
+A aplicação contém bloqueio de contas que pode ser ativado facilmente (mecanismo usado contra ataques de força bruta).
+
+Isto permite que os atacantes bloqueiem serviços aos utilizadores, bloqueando-lhes as contas.
+
+\subsection{Cross-Site Scripting (XSS)}
+
+Injeção de scripts malignos em sites.
+
+\subsection{Cross-Site Request Forgery (CSRF)}
+
+Um atacante cria links que levam para ações na página onde o utilizador já tem sessão iniciada.
+
+\subsection{Man in the Middle Attack}
+
+Intercetar comunicações entre dois sistemas.
+
+Evita-se usando chaves públicas assinadas por uma certificate authority (CA).
+
+\subsection{Credential Storage}
+
+Passwords devem ser passadas ao servidor e só depois se faz uma hash, utilizando um salt variável.
+
+Um salt deve ser gerado com um Cryptographically Secure Pseudo-Random Number Generator. 
+Deve ser único para cada user.
+Tem que ser longo.
+O salt deve ser concatenado à password e, de seguida, deve ser criada uma hash.
+Tanto o salt como a hash devem ser guardados na base de dados.
+
+\subsection{Session Fixation}
+
+Obter ID de sessão válido, induzindo um utilizador a autenticar-se com esse ID e, posteriormente, roubar a sessão validada com o conhecimento do ID de sessão utilizado.
+
+\subsection{Session Hijacking}
+
+Ganhar controlo da sessão do utilizador roubando o ID de sessão.
+
+\subsection{Denial of Service}
+
+Tentativa de fazer uma máquina ou recurso de rede indisponível para os seus utilizadores.
+
+\end{document}
+

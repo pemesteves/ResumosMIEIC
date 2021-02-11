@@ -1,0 +1,71 @@
+\documentclass[../resumosLTW.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+Alguns elementos HTML podem ter filhos. Estes elementos têm tag de abertura e fecho. Elementos que não permitem ter filhos só têm tag e abertura.
+
+\paragraph{}
+
+Um documento HTML tem uma tag html como raíz e as secções head (que tem que conter a tag title) e body. A tag html deve conter o atributo lang.
+
+\paragraph{}
+
+Listas:
+\begin{itemize}
+    \item Ordenadas (ol).
+    \item Não ordenadas (ul).
+    \item Descritivas (dl): definem-se termos (dt) e as suas descrições (dd).
+\end{itemize}
+
+\paragraph{}
+
+Tabelas (table):
+\begin{itemize}
+    \item Pode ter um título/legenda (caption).
+    \item Organizada através de linhas (tr) que contêm células de dados (td).
+    \item Algumas células podem ser cabeçalhos (headers): th em vez de td.
+    \item colspan: célula ocupa número de colunas especificado.
+    \item rowspan: célula ocupa número de linhas especificado.
+    \item Secções: thead, tfoot, tbody: permite especificar header, footer e body de uma tabela.
+    \item Grupos de colunas: para não ser repetida informação nas colunas, definem-se grupos de colunas com as tags colgroup e col.
+\end{itemize}
+
+\paragraph{}
+
+Formulários (form):
+\begin{itemize}
+    \item Dois atributos importantes
+    \begin{itemize}
+        \item action: página para onde serão enviados os resultados.
+        \item method: get ou post.
+    \end{itemize}
+    \item Controlos:
+    \begin{itemize}
+        \item input: campos editáveis.
+        \item textarea: campo de texto editável.
+        \item select: dropdown list.
+        \item button: botão genérico.
+    \end{itemize}
+    \item Select (dropdown list):
+    \begin{itemize}
+        \item Cada opção é representada com a tag option.
+        \item Opções podem ser agrupadas com optgroup (atributo label indica o nome do grupo).
+    \end{itemize}
+    \item Label: permite associação entre uma label e o respetivo input. Clicando na label o input é ativado.
+    \item Field Set (fieldset): permite agrupar inputs. Tag legend contém o título do grupo.
+\end{itemize}
+
+\paragraph{}
+
+Um documento HTML não pode ter dois elementos com o mesmo id.
+
+\paragraph{}
+
+Elementos semânticos (alternativa a div): header, nav, aside, section, article, footer.
+
+\end{document}
+

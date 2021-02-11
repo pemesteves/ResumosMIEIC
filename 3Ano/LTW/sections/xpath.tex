@@ -1,0 +1,100 @@
+\documentclass[../resumosLTW.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+Linguagem para endereçar partes de um documento XML.
+
+\paragraph{}
+
+Modela um documento XML como uma árvore de nós.
+
+\paragraph{}
+
+Há diferentes tipos de nós: elementos, atributos e texto.
+
+\paragraph{}
+
+Os tipos de nós são usados para representar o documento como uma árvore:
+\begin{itemize}
+    \item Um document node é a raíz da árvore.
+    \item Cada nó element representa uma tag XML.
+    \item Atributos de um elemento são representados por attribute nodes.
+    \item Texto dentro de um elemento torna-se um text node.
+    \item Comentários são representados como comment nodes.
+    \item Construções XML \lstinline{<?...?>} tornam-se processing instructions nodes.
+\end{itemize}
+
+\paragraph{}
+
+Tipos de dados usados por expressões XPath:
+\begin{itemize}
+    \item node-set: conjunto de 0 ou mais nós.
+    \item boolean: valor true ou false.
+    \item number: números em XPath são representados em vírgula flutuante.
+    \item string: cadeia de caracteres.
+\end{itemize}
+
+\paragraph{}
+
+Location Path:
+\begin{itemize}
+    \item Seleciona um conjunto de elementos relativo ao content node.
+    \item Se for precedido por /, torna-se um caminho absoluto e o context node é a raíz do documento.
+    \item Um location path é composto por location steps, separados por /, cada um com 3 partes:
+    \begin{itemize}
+        \item um eixo (axis).
+        \item um nó de teste (test node).
+        \item zero ou mais predicados.
+    \end{itemize}
+\end{itemize}
+
+\paragraph{}
+
+Eixo (axis): especifica a relação de árvore entre os nós selecionados pelo location step e o context node.
+
+\paragraph{}
+
+Cada eixo tem um tipo principal de nó. 
+Se um eixo pode conter elementos, o tipo de nó principal é element; caso contrário, é o tipo de nós que o eixo contém.
+\begin{itemize}
+    \item Para o eixo attribute, o tipo de nó principal é attribute.
+    \item Para o eixo namespace, o tipo de nó principal é namespace.
+    \item Para outros eixos, o tipo de nó principal é element.
+\end{itemize}
+
+\paragraph{}
+
+Um node test, que é um QName, é verdadeiro se e só se o tipo de nó é o tipo de nó principal e tem um nome igual ao nome especificado pelo QName.
+O node test * é verdadeiro para qualquer text node.
+O node test text() é verdadeiro para qualquer text node.
+O node test comment() é verdadeiro para qualquer comment node.
+O node test processing-instruction() é verdadeiro para qualquer processing instruction node.
+Um node test node() é verdadeiro para qualquer nó.
+
+\paragraph{}
+
+Predicados encontram-se entre [] e selecionam nós de conjunto. 
+Um location step tem 0 ou mais predicados.
+
+\paragraph{}
+
+Abreviações:
+\begin{itemize}
+    \item child:: -> pode ser omitido. child é o default axis.
+    \item //e -> descendant-or-self::e
+    \item ./e -> self::e
+    \item ../e -> parent::e
+    \item @e -> attribute::e
+\end{itemize}
+
+\paragraph{}
+
+A função document.evaluate() pode ser usada para selecionar elementos usando expressões XPath.
+Permite selecionar elementos não selecionáveis com alguns seletores de CSS.
+
+\end{document}
+

@@ -1,0 +1,77 @@
+\documentclass[../resumosLTW.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+Seletores: permitem selecionar elementos HTML a serem alterados.
+
+\paragraph{}
+
+Propriedades: aspetos a alterar nos elementos selecionados.
+
+\paragraph{}
+
+\lstinline{<link rel="stylesheet" href="style.css">}: ligar ficheiro HTML ao ficheiro \emph{style.css}.
+
+\paragraph{}
+
+\lstinline{>}: seleciona "filhos".
+
+\paragraph{}
+
+\lstinline{+}: seleciona próximo "irmão".
+
+\paragraph{}
+
+\lstinline{~}: seleciona próximos "irmãos". 
+
+\paragraph{}
+
+Pseudo-classes permitem selecionar elementos com determinadas características.
+
+\paragraph{}
+
+Seletores de atributos: seleciona elementos baseando-se na existência de atributos e valores (exemplo: \lstinline{form[method=get]}.
+
+\paragraph{}
+
+Tamanhos relativos de fontes:
+\begin{itemize}
+    \item \textbf{em}: quando usado com font-size, representa o tamanho da fonte do elemento-"pai". Para comprimentos, representa o tamanho da fonte do elemento atual.
+\end{itemize}
+
+\paragraph{}
+
+Flexbox: alternativa ao box layout model. Elementos são flexíveis e adaptam-se ao tamanho atual do ecrã. É necessário alterar o atributo display para flex.
+
+\paragraph{}
+
+Grid: permite alinhar elementos em linhas e colunas.
+
+\paragraph{}
+
+Cálculo de especificidade: 
+\begin{itemize}
+    \item A especificidade de uma regra é definida como 4 valores (a, b, c, d).
+    \item Cada valor é incrementado quando um certo tipo de seletor é utilizado:
+    \begin{itemize}
+        \item d: Elemento, Pseudo-elemento (::).
+        \item c: Classe, Pseudo-classe (:), Atributo.
+        \item b: id.
+        \item a: Inline style.
+    \end{itemize}
+\end{itemize}
+
+\paragraph{}
+
+CSS Vars:
+\begin{itemize}
+    \item Entidades que podem ser reutilizadas no documento.
+    \item Acedem-se com a função \lstinline{var()}.
+\end{itemize}
+
+\end{document}
+

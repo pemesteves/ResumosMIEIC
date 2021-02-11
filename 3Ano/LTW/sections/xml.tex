@@ -1,0 +1,52 @@
+\documentclass[../resumosLTW.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+Define um conjunto de regras para codificar documentos num formato que é legível por humanos e máquinas.
+
+\paragraph{}
+
+É uma metalinguagem permitindo que qualquer pessoa crie a sua própria linguagem para diferentes tipos de documentos.
+
+\paragraph{}
+
+Um documento XML é considerado bem formado se:
+\begin{itemize}
+    \item contém 1 ou mais elementos.
+    \item tem uma e uma só raíz.
+    \item os seus elementos se aninham adequadamente uns com os outros.
+\end{itemize}
+
+\paragraph{}
+
+Desde o XML1.1 todos os documentos têm que começar com uma instrução que indica a sua versão, senão é considerado XML1.0.
+A codificação por defeito é UTF-8.
+\begin{lstlisting}
+    <?xml version="1.1" encoding="utf-8"?>
+\end{lstlisting}
+
+\paragraph{}
+
+Secções CDATA são usadas para incluir texto que inclui blocos que, noutro caso, seriam lidos como markup.
+Começam com \lstinline{<![CDATA} e terminam com \lstinline{]]>}. Exemplo:
+\begin{lstlisting}
+    <![CDATA <warning>Not markup!</warning>]]>
+\end{lstlisting}
+
+\paragraph{}
+
+Elementos são definidos com tag de abertura e fecho.
+Todos têm que ser fechados.
+Todos os elementos abertos dentro de outro elemento têm que ser fechados antes do pai.
+
+\paragraph{}
+
+Atributos são usados para associar pares nome-valor a um elemento. 
+Só aparecem na tag inicial.
+
+\end{document}
+

@@ -1,0 +1,93 @@
+\documentclass[../resumosLTW.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+URI: Uniform Resource Identifier
+\begin{itemize}
+    \item Um identificador é um objeto que aje como referência para algo que tem identidade.
+    \item Um URI pode ser classificado como localizador (URL), nome (URN) ou ambos.
+    \item Componentes de um URI: esquema, autoridade, path, query, fragmento.
+\end{itemize}
+
+\paragraph{}
+
+URN: Uniform Resource Names
+\begin{itemize}
+    \item Destinam-se a servir como identificadores de recursos persistentes e independentes do local.
+\end{itemize}
+
+\paragraph{}
+
+URL: Uniform Resource Locator
+\begin{itemize}
+    \item Refere-se ao subconjunto de URI que identifica recursos através de uma representação do seu mecanismo de acesso primário, em vez de identificar o recurso por nome ou outro atributo desse recurso.
+    \item \lstinline{scheme://domain:port/path?query_string#fragment_id}
+    \begin{itemize}
+        \item scheme refere-se ao protocolo.
+        \item port, query\_string e fragment\_id são opcionais. 
+    \end{itemize}
+\end{itemize}
+
+\paragraph{}
+
+Uma sessão HTTP consiste em 3 fases:
+\begin{itemize}
+    \item O cliente estabelece uma conexão TCP.
+    \item O cliente envia um pedido e espera por uma resposta.
+    \item O servidor processa o pedido e envia a resposta, contendo um status code e os dados apropriados.
+\end{itemize}
+
+\paragraph{}
+
+Pedido HTTP: a primeira linha contém o método seguido dos seus parâmetros.
+O método indica a ação a realizar.
+
+\paragraph{}
+
+
+Um método seguro não tem efeitos secundários no servidor.
+\begin{itemize}
+    \item GET: usado para recuperar informação identificada pelo URI pedido.
+    \item HEAD: idêntico ao GET, mas sem o envio do corpo da mensagem.
+\end{itemize}
+
+\paragraph{}
+
+Um método idempotente é um método onde os efeitos secundários de vários pedidos idênticos são os mesmos efeitos secundários de um pedido.
+\begin{itemize}
+    \item PUT: solicita que a entidade fechada seja armazenada no URI fornecido.
+    \item DELETE: apaga o recurso identificado pelo URI.
+\end{itemize}
+
+\paragraph{}
+
+Outros métodos:
+\begin{itemize}
+    \item POST: solicita que o servidor aceite a entidade fechada no pedido como um novo subordinado do recurso identificado pelo URI.
+    \item OPTIONS, TRACE, CONNECT e PATH.
+\end{itemize}
+
+\paragraph{}
+
+Ao responder a um pedido de um cliente, o servidor envia 1 código e 3 dígitos:
+\begin{itemize}
+    \item de informação (1XX).
+    \item de sucesso (2XX).
+    \item de redirecionamento (3XX).
+    \item de erro do cliente (4XX).
+    \item de erro do servidor (5XX).
+\end{itemize}
+
+\paragraph{}
+
+Para descobrir qual método HTTP foi usado para aceder a um recurso usa-se o array \$\_SERVER.
+\begin{itemize}
+    \item \$\_SERVER['REQUEST\_METHOD']
+\end{itemize}
+
+\end{document}
+

@@ -1,0 +1,137 @@
+\documentclass[../resumosLTW.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+Sequência de caracteres que formam um padrão de pesquisa.
+
+\paragraph{}
+
+São usadas em validação de dados, procura e substituição, e parsing.
+
+\paragraph{}
+
+Quando se valida, pretende-se, normalmente, que toda a string coincida com o padrão.
+
+\paragraph{}
+
+Quando se procura, pretende-se que uma substring coincida com o padrão.
+
+\paragraph{}
+
+Existem 12 caracteres especiais que têm significados especiais nas expressões regulares: \textbackslash, \^{}, \$, ., |, ?, *, +, (, ), [ e \{.
+Para encontrar um destes símbolos numa string, utiliza-se uma \textbackslash antes (\textbackslash\textbackslash, \textbackslash\^{}, etc).
+
+\paragraph{}
+
+Classe de caracteres, ou conjunto, coincide com apenas um de vários caracteres (exemplo: gr[ae]y: gray ou grey).
+
+\paragraph{}
+
+Pode-se utilizar hífens (-) para especificar intervalos numa classe de caracteres (exemplo: [0-9a-fA-F]: 0 a 9 ou a a f ou A a F).
+
+\paragraph{}
+
+Para negar uma classe usa-se um acento circunflexo (\^{}) no início da classe (exemplo: [\^{}A-Za-f]: qualquer letra exceto A a Z e a a f).
+
+\paragraph{}
+
+Dentro de uma classe de caracteres, os únicos caracteres especiais são ], \textbackslash, \^{} e -.
+
+\paragraph{}
+
+Um ponto (.) coincide com qualquer carácter exceto mudanças de linha.
+
+\paragraph{}
+
+Âncoras podem ser usadas para especificar a posição da string coincidente:
+\begin{itemize}
+    \item \^{} coincide a posição antes do primeiro carácter da string.
+    \item \$ coincide logo após o último carácter da string.
+    \item Podem ser usados os dois para validar uma string completa.
+\end{itemize}
+
+\paragraph{}
+
+O metacaracter \textbackslash b é uma âncora que coincide com uma posição chamada de "word boundary".
+Permite fazer pesquisas de palavras completas (exemplo: \textbackslash b is \textbackslash b: is).
+
+\paragraph{}
+
+Uma | permite coincidir com apenas uma de vária expressões regulares (exemplo: cat | dog).
+
+\paragraph{}
+
+O ? faz com que o carácter precedente seja opcional (exemplo: colou?r: color ou colour).
+
+\paragraph{}
+
+Uma * permite que o elemento anterior se repita 0 ou mais vezes. 
+Um + permite que este se repita 1 ou mais vezes.
+
+\paragraph{}
+
+Usando \{ e \} podemos especificar o máximo e mínimo de repetições. 
+Exemplos:
+\begin{itemize}
+    \item {[0-9]}\{9\}: repete-se 9 vezes.
+    \item {[0-9]}\{1, 3\}: repete-se entre 1 e 3 vezes.
+    \item {[0-9]}\{2, \}: repete-se pelo menos 2 vezes.
+    \item {[0-9]}\{, 3\}: repete-se no máximo 3 vezes.
+\end{itemize}
+
+\paragraph{}
+
+Para tornar as repetições lazy, adiciona-se um ? após o operador de repetição.
+Isto força o processador a realizar retrocessos mais vezes. 
+Uma alternativa seria negar classes.
+
+\paragraph{}
+
+Colocando parte de um padrão entre () cria um grupo, que permite aplicar quantificadores e alterações a partes específicas de um padrão.
+
+\paragraph{}
+
+Grupos são capturados e numerados automaticamente, o que permite extrair diferentes partes de uma expressão.
+
+\paragraph{}
+
+Para criar um grupo que não queremos que seja capturado, começamos o grupo com \textbf{?:}
+
+\paragraph{}
+
+Backreferences são usadas para coincidir o mesmo texto duas vezes (\textbackslash n ou \$ n).
+
+\paragraph{} 
+
+Usando ?! podemos coincidir algo que não é seguido de outra coisa.
+
+\paragraph{} 
+
+?<= permite verificar se o texto precedente coincide (exemplo: (?<= is)land: match é land de island).
+
+\paragraph{}
+
+Em HTML, os elementos input têm um atributo pattern que obriga a coincidir com a expressão regular.
+
+\paragraph{}
+
+Em PHP, os padrões devem estar delimitados por /, \# ou \~{}.
+A função preg\_match() permite utilizar expressões regulares e encontrar um resultado.
+A função preg\_match\_all() encontra todos os resultados.
+A função preg\_replace() substitui os resultados por uma string.
+
+\paragraph{}
+
+Em JavaScript têm que ser delimitados por /.
+A função test, testa se existe um resultado.
+A função match() executa e procura uma expressão regular numa string.
+A função search() retorna o índice do primeiro resultado, se existir.
+A função replace() permite substituir um resultado.
+
+
+\end{document}
+

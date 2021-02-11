@@ -1,0 +1,113 @@
+\documentclass[../resumosLTW.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+Código PHP tem que ser delimitado através de "\lstinline{<?php}" e "\lstinline{?>}", ou "\lstinline{<?}" e "\lstinline{?>}", ou "\lstinline{<script language="php">}" e "\lstinline{</script>}".
+
+\paragraph{}
+
+Imprimir strings:
+\begin{itemize}
+    \item \lstinline{<?php echo 'string'; ?>}
+    \item \lstinline{<?= 'string' ?>}
+\end{itemize}
+
+\paragraph{}
+
+Variáveis são representadas com \$ seguido do nome da variável.
+
+\paragraph{}
+
+A atribuição a uma variável é feita por valor exceto se o sinal \& for usado.
+
+\paragraph{}
+
+O valor null representa uma variável sem valor.
+
+\paragraph{}
+
+Uma variável é nula (null) se:
+\begin{itemize}
+    \item lhe foi atribuída a constante null.
+    \item ainda não lhe foi atribuído um valor.
+    \item foi utilizada a função \lstinline{unset()}.
+\end{itemize}
+
+\paragraph{}
+
+As funções die e exit param a execução de um script PHP. Podem receber um argumento (status).
+
+\paragraph{}
+
+Dois tipos de comparação:
+\begin{itemize}
+    \item \lstinline{==} e \lstinline{!=}: comparam-se valores depois de haver cast para o mesmo tipo de variável.
+    \item \lstinline{===} e \lstinline{!==}: comparam-se valores verdadeiros.
+\end{itemize}
+
+\paragraph{}
+
+Strings podem ser definidas com aspas ou plicas. Strings com aspas expandem as variáveis que se encontram dentro.
+
+\paragraph{}
+
+Concatenação de strings é feita com o operador \textbf{\lstinline{.}}
+
+\paragraph{}
+
+Arrays:
+\begin{itemize}
+    \item Podem ser criados com a função array() ou [].
+    \item São mapas organizados como coleção de pares key-value.
+    \item Por defeito, as chaves são inteiros. Quando uma chave não é especificada, o PHP usa o incremento da maior chave inteira utilizada até ao momento.
+\end{itemize}
+
+\paragraph{}
+
+Para utilizar uma variável global dentro de uma função é necessário declará-la como global.
+
+\paragraph{}
+
+Classes:
+\begin{itemize}
+    \item Declaradas com class.
+    \item Podem ter atributos/métodos privados, protegidos ou públicos.
+    \item Para utilizar um atributo num méto método é utilizada a keyword \$this.
+    \item Podem ser declarados constructor (\_\_contstruct()) e destrutor (\_\_destruct()).
+    \item Uma instância da classe é criada com a keyword new.
+    \item Existe herança entre classes (extends) e é possível implementar interfaces (implements).
+\end{itemize}
+
+\paragraph{}
+
+Para conectar a uma base de dados é utilizado um objeto PDO.
+
+\paragraph{}
+
+Para evitar ataques:
+\begin{lstlisting}
+    $stmt = $db->prepare(query);
+    $stmt->execute(array(args));
+    $stmt->fetch(); // Retira um resultado (fetchAll() retorna todos)
+\end{lstlisting}
+
+\paragraph{}
+
+\$\_GET[] e \$\_POST[] permitem receber argumentos passados por estes métodos.
+
+\paragraph{}
+
+\$\_COOKIE permite aceder aos cookies enviados pelo browser.
+
+\paragraph{}
+
+Uma sessão é começada com a função \lstinline{session_start()}. A variável \$\_SESSION guarda um array com as informações importantes da sessão. A função \lstinline{session_destroy()} destrói todos os dados associados à sessão atual.
+
+
+
+\end{document}
+

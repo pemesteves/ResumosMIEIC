@@ -1,0 +1,153 @@
+\documentclass[../resumosLTW.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+Para usar ECMAScript 5, o ficheiro de JavaScript deve começar com 'use strict'.
+\begin{itemize}
+    \item Alterações:
+    \begin{itemize}
+        \item Não existem variáveis globais não declaradas.
+        \item Não se declaram variáveis com var.
+        \item Alguns warnings passaram a erros.
+    \end{itemize}
+\end{itemize}
+
+\paragraph{}
+
+Variáveis são declaradas com let. Os seus nomes podem ter apenas números, letras, \$ e \_ (e não podem começar com um número).
+
+\paragraph{}
+
+Constantes são declaradas com const.
+
+\paragraph{}
+
+Variáveis declaradas com var:
+\begin{itemize}
+    \item Não têm block scope (só function scope).
+    \item São processadas quando uma função começa.
+\end{itemize}
+
+\paragraph{}
+
+Tipos de dados primitivos:
+\begin{itemize}
+    \item Number (double).
+    \item String (text).
+    \item Boolean (true ou false).
+    \item Null (apenas 1 valor: null).
+    \item Undefined (ainda não foi atribuído um valor).
+\end{itemize}
+
+\paragraph{}
+
+Strings podem ser definidas com plicas, aspas ou backticks (`). Com a última, expressões dentro de \$\{...\} são avaliadas e o resultado faz parte da string.
+
+\paragraph{}
+
+Operador + soma números ou concatena strings (se pelo menos um operando for uma string).
+
+\paragraph{}
+
+É possível usar String(), Boolean() e Number() para converter valores para os tipos pretendidos.
+
+\paragraph{}
+
+\lstinline{===} e \lstinline{!==} comparam valores. 
+\lstinline{==} e \lstinline{!=} comparam tipos.
+
+\paragraph{}
+
+Funções são definidas com a keyword function. Tipos primitivos são passados por valor, mas tipos não primitivos são passados por referência. Funções com um return vazio ou sem return, retornam undefined.
+
+\paragraph{}
+
+Arrow functions são uma forma mais compacta de declarar funções.
+
+\paragraph{}
+
+Pode-se usar a keyword this dentro de um objeto para referir ao objeto atual.
+
+\paragraph{}
+
+Call e Apply são alternativas a chamadas a funções. Ambas recebem o contexto como primeiro argumento.
+
+\paragraph{}
+
+Objetos podem ser acedidos com [] como num array associativo.
+
+\paragraph{}
+
+\lstinline{for ... in} permite executar código para cada propriedade de um objeto/array.
+
+\paragraph{}
+
+Cada função tem uma propriedade prototype interna que é inicializada como um objeto vazio.
+Quando o new é utilizado, é criado um novo objeto derivado do prototype.
+É possível alterar o prototype de uma função deretamente.
+
+\paragraph{}
+
+Quando um objeto é criado com new, uma propriedade \_\_proto\_\_ é inicializada com o prototype da função que o criou.
+
+\paragraph{}
+
+A keyword class é uma forma simplificada de criar classes protoype-based.
+Só podem ter métodos e getters/setters.
+
+\paragraph{}
+
+Arrays são objetos list-like.
+Só podem ser acedidos com [].
+Os seus índices começam em 0.
+
+\paragraph{}
+
+Podem ser lançadas exceções (ou qualquer outro objeto) com throw.
+
+\paragraph{}
+
+Exceções devem ser envolvidas em blocos \lstinline{try .. catch}.
+
+\paragraph{}
+
+JavaScript pode ser incluído num ficheiro HTML com a tag script.
+
+\paragraph{}
+
+Scripts devem ter 1 dos seguintes métodos:
+\begin{itemize}
+    \item async: é corrido assim que seja feito o seu download sem bloquear o browser.
+    \item defer: é corrido apenas quando a página é carregada e por ordem.
+\end{itemize}
+
+\paragraph{}
+
+document representa o documento atual.
+Contém métodos importantes para aceder a elementos.
+Um objeto Element representa um elemento HTML (id, innerHTML, outerHTML, style, getAttribute(), setAttribute(), remove()).
+A função createElement() de document cria um novo elemento, mas não é inserido no documento.
+O objeto Node representa um nó na árvore do documento (appendChild(), replaceChild(), removeChild(), insertBefore()).
+
+\paragraph{}
+
+XMLHttpRequest permite enviar pedidos HTTP facilmenteL
+\begin{itemize}
+    \item open(method, url, async)
+    \begin{itemize}
+        \item Method: get ou post.
+        \item URL: URL a procurar.
+        \item Async: se for falso, a execução para à espera de uma resposta.
+    \end{itemize}
+    \item encodeForAjax(obj): cria um objeto a passar ao PHP.
+    \item send(): envia os dados.
+    \item JSON.parse(): permite receber a resposta do servidor.
+\end{itemize}
+
+
+\end{document}
+
