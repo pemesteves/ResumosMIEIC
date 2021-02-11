@@ -1,0 +1,46 @@
+\documentclass[../resumosPLOG.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+findall(Term, Goal, Bag): unifica Bag com a lista das instâncias de Term para as quais Goal é satisfeito.
+\begin{itemize}
+    \item Todos os X para os quais \lstinline{call(Goal), X=Term?} é satisfeito.
+    \item Term e Goal tipicamente partilham variáveis.
+\end{itemize}
+
+\paragraph{}
+
+bagof(Term, Goal, Bag): idêntico ao findall, mas são encontradas soluções alternativas para as variáveis em Goal.
+
+\paragraph{}
+
+setof(Term, Goal, Bag): soluções ordenadas, sem duplicados (conjunto).
+
+\paragraph{}
+
+Meta-Interpretador: interpretador de uma linguagem escrito na própria linguagem.
+\begin{itemize}
+    \item Em Prolog, é fácil construí-los porque não há distinção entre programa e dados.
+    \item Interesse em desenvolvê-los:
+    \begin{itemize}
+        \item Implementar diferentes estratégias de pesquisa da solução.
+        \item Incluir capacidade de explicação.
+        \item Incluir facilidades acrescidas de traçagem, teste e debugging.
+    \end{itemize}
+\end{itemize}
+
+\paragraph{}
+
+Definição de operadores:
+\begin{itemize}
+    \item Nome (um átomo), tipo (classe e associatividade) e prioridade (inteiro entre 1 e 1200).
+    \item :- op(Prioridade, Tipo, Nome).
+    \item Tipos de Operadores: fx, fy, xfx, xfy, yf, xf (y tem prioridade; x e y indicam o lado da associação).
+\end{itemize}
+
+\end{document}
+

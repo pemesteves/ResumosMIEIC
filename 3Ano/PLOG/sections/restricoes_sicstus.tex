@@ -1,0 +1,17 @@
+\documentclass[../resumosPLOG.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+Domínio das variáveis:
+\begin{itemize}
+    \item Uma variável pode ter o seu domínio declarado usando in/2 e um intervalo (Constant Range).
+    \item Pode ainda ser usado in\_set/2. O seu segundo argumento é um Finite Domain Set, que pode ser obtido a partir de uma lista com o predicado list\_to\_fdset(+List, -FD\_Set).
+    \item Para declara o mesmo domínio a uma lista de variáveis pode ser usado o predicado domain(+List\_of\_Variables, +Min, +Max).
+\end{itemize}
+
+\end{document}
+

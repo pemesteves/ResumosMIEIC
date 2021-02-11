@@ -1,0 +1,187 @@
+\documentclass[../resumosPLOG.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+Execução sequencial, da esquerda para a direita, dos objetivos da resolvente.
+
+\paragraph{}
+
+Pesquisa sequencial de uma cláusula unificável e retrocesso (backtracking)
+\begin{itemize}
+    \item Escolhe a primeira cláusula cuja cabeça unifica com o objetivo.
+    \item Se não houver, a computação é desfeita até à última escolha (ponto de escolha), e é escolhida a cláusula unificável seguinte.
+\end{itemize}
+
+\paragraph{}
+
+A maior parte das implementações de Prolog:
+\begin{itemize}
+    \item Pesquisa a árvore até encontrar a primeira solução
+    \item Permite ao utilizador indicar que quer mais soluções através do símbolo ; 
+\end{itemize}
+
+\paragraph{}
+
+Heurísticas de Ordenação
+\begin{itemize}
+    \item Colocar testes primeiro
+    \item Colocar primeiro os objetivos com menos soluções (depende da base de dados)
+    \item Colocar primeiro os objetivos mais instanciados (depende do uso)
+    \item Objetivo: falhar o mais rápido possível!
+    \begin{itemize}
+        \item falhar significa podar a árvore de pesquisa, levando mais depressa à solução
+    \end{itemize}
+\end{itemize}
+
+\paragraph{}
+
+Avaliador aritmético: is(Value, Expression)
+\begin{itemize}
+    \item Value is Expression
+    \item A expressão Expression é avaliada e o resultado é unificado com Value
+    \begin{itemize}
+        \item a expressão não pode conter variáveis não instanciadas.
+    \end{itemize}
+    \item Tem sucesso se a unificação tiver sucesso. Exemplos:
+    \begin{itemize}
+        \item X is 3 + 5? X = 8
+        \item 8 is 3 + 5? yes
+        \item 3 + 5 is 3 + 5? false
+    \end{itemize}
+\end{itemize}
+
+\paragraph{}
+
+No Prolog, a recursividade é usada para especificar algoritmos recursivos e iterativos
+\begin{itemize}
+    \item Cláusula iterativa: chamada recursividade é o último objetivo do corpo.
+    \item Procedimento iterativo: se contiver apenas factos e cláusulas iterativas.
+\end{itemize}
+
+\paragraph{}
+
+O cut (!) permite afetar o comportamento procedimental dos programas
+\begin{itemize}
+    \item Principal função: reduzir o espaço de procura podando dinamicamente a árvore de pesquisa
+    \begin{itemize}
+        \item Reduz tempo de computação
+        \item Reduz espaço, pois alguns pontos de escolha deixam de ser necessários
+    \end{itemize}
+\end{itemize}
+
+\paragraph{}
+
+O cut sucede e compromete o Prolog com todas as escolhas feitas desde que o objetivo pai foi unificado com a cabeça da cláusula onde o cut ocorre.
+
+\paragraph{}
+
+Em caso de retrocesso no cut, a pesquisa continuará a partir da última escolha feita antes da escolha desta cláusula.
+
+\paragraph{}
+
+\textbf{fail}: predicado que provoca falha.
+
+\paragraph{}
+
+Cut verde:
+\begin{itemize}
+    \item não altera o significado do programa: o mesmo conjunto de soluções é encontrado com ou sem o cut.
+    \item corta apenas caminhos de computação que não levam a novas soluções.
+\end{itemize}
+
+\paragraph{}
+
+Cut vermelo:
+\begin{itemize}
+    \item se retirado, altera o significado do programa: o conjunto de soluções será diferente.
+    \item a ordem das cláusulas passa a ser fixa.
+\end{itemize}
+
+\paragraph{}
+
+A omissão de condições transforma cuts verdes em vermelhos:
+\begin{itemize}
+    \item Cut verde:
+    \begin{lstlisting}
+        minimum(X, Y, X) :- X <= Y, !.
+        minimum(X, Y, Y) :- X > Y, !.
+    \end{lstlisting}
+    \item Cut vermelho:
+    \begin{lstlisting}
+        minimum(X, Y, X) :- X <= Y, !.
+        minimum(X, Y, Y).
+    \end{lstlisting}
+\end{itemize}
+
+\paragraph{}
+
+Inspeção de estruturas:
+\begin{itemize}
+    \item functor(Term, F, Arity) / arg(N, Term, Arg)
+    \begin{itemize}
+        \item Decomposição de termos
+        \item Criação de termos
+    \end{itemize}
+    \item Term =.. List
+    \begin{itemize}
+        \item Construir um termo a partir de uma lista
+        \item Construir uma lista a partir de um termo
+    \end{itemize}
+\end{itemize}
+
+\paragraph{}
+
+Predicados meta-lógicos:
+\begin{itemize}
+    \item var(Term) / nonVar(Term)
+    \begin{itemize}
+        \item Verificam se Term está ou não instanciado
+    \end{itemize}
+    \item == / \textbackslash==
+    \begin{itemize}
+        \item Verificam se dois termos são ou não idênticos
+    \end{itemize}
+\end{itemize}
+
+\paragraph{}
+
+Meta-variável: variável usada como um objetivo no corpo de uma cláusula. Durante a computação, aquando da sua invocação a variável deverá estar instanciada com um termo (se não, erro).
+
+\paragraph{}
+
+Strings e Códigos ASCII
+\begin{itemize}
+    \item String (entre aspas) corresponde a uma lista de inteiros que são os códigos ASCII de cada carácter na string
+    \item name(X, Ys): converte átomo X na lista Ys com códigos ASCII dos caracteres de X
+    \item put(N): escreve carácter cujo código ASCII é N
+    \item get0(N): lê carácter e unifica o seu código ASCII com N
+    \item get(N): lê carácter não branco
+\end{itemize}
+
+\paragraph{}
+
+Ficheiros:
+\begin{itemize}
+    \item see(F): abre canal de leitura para o ficheiro F. Leituras passam a ser feitas a partir de F.
+    \item tell(F): abre canal de escrita para o ficheiro F. Escritas passam a ser feitas para F.
+    \item seeing(F)/telling(F): F é unificado com o nome do ficheiro do canal corrente.
+    \item seen/told: fecha o canal corrente.
+\end{itemize}
+
+\paragraph{}
+
+Acesso e Manipulação do Programa
+\begin{itemize}
+    \item assertz(Clause)/asserta(Clause): adiciona Clause como última/primeira cláusula do procedimento.
+    \item retract(C): remove a primeira cláusula que unifica com C.
+    \item consult(File): lê e adiciona (assert) as cláusulas do ficheiro File.
+    \item reconsult(File): faz retract das cláusulas antes de consult.
+    \item clause(Head, Body): procura cláusula cuja cabeça unifica com Head.
+\end{itemize}
+
+\end{document}
+

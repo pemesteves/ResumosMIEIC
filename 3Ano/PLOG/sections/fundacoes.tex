@@ -1,0 +1,27 @@
+\documentclass[../resumosPLOG.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+Programa: conjunto de axiomas.
+
+\paragraph{}
+
+Computação: prova construtiva de um objetivo a partir do programa.
+
+\paragraph{}
+
+Interpretação procedimental de uma cláusula de Horn: 
+
+\quad A se B\textsubscript{1} e B\textsubscript{2} e ... e B\textsubscript{n}
+\begin{itemize}
+    \item Leitura declarativa: A é verdade se os \(B_i\) são verdade.
+    \item Leitura procedimental: para resolver A, resolver \(B_1\), \(B_2\) e ... e \(B_n\).
+    \item Interpretador da linguagem: prova usando o algoritmo da unificação.
+\end{itemize}
+
+\end{document}
+

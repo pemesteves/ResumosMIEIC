@@ -1,0 +1,97 @@
+\documentclass[../resumosPLOG.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+A PLR, ou CLP (Constraint Logic Programming), é uma classe de linguagens de programação combinando:
+\begin{itemize}
+    \item Declaratividade da programação em lógica.
+    \item Eficiência da resolução de restrições.
+\end{itemize}
+
+\paragraph{}
+
+Aplicações principais na resolução de problemas de pesquisa/otimização combinatória.
+
+\paragraph{}
+
+Um Problema de Satisfação de Restrições - PST, ou CSP (Constraint Satisfaction Problem) - é modelado através de:
+\begin{itemize}
+    \item Variáveis representando diferentes aspetos do problema, juntamente com os seus domínios.
+    \item Restrições que limitam os valores que as variáveis podem tomar dentro dos seus domínios.
+\end{itemize}
+
+\paragraph{}
+
+A solução de um CSP é uma atribuição de um valor (do seu domínio) a cada variável, de forma a que todas as restrições sejam satisfeitas.
+
+\paragraph{}
+
+Mais formalmente, um CSP é um tuplo <V, D, C>:
+\begin{itemize}
+    \item V = \(\{x_1, x_2, ..., x_n\}\) é o conjunto de variáveis.
+    \item D é uma função que mapeia cada variável de V num conjunto de valores (domínio).
+    \item C = \(\{C_1, C_2, ..., C_n\}\) é o conjunto de restrições que afetam um subconjunto arbitrário de variáveis de V.
+\end{itemize}
+
+\paragraph{}
+
+As restrições de um CSP/COP podem ser:
+\begin{itemize}
+    \item Rígidas (Hard Constraints): são aquelas que têm obrigatoriamente de ser cumpridas. Todas as restrições num CSP são deste tipo.
+    \item Flexíveis (Soft Constraints): são aquelas que podem ser quebradas.
+\end{itemize}
+
+\paragraph{}
+
+Resolução de um CSP:
+\begin{itemize}
+    \item Declarar as variáveis e os seus domínios (finitos).
+    \item Especificar as restrições existentes.
+    \item Pesquisar para encontrar a solução.
+\end{itemize}
+
+\paragraph{}
+
+Restrições - construção:
+\begin{itemize}
+    \item Retrocesso: "generate and test"
+    \item Propagação: "forward checking"
+\end{itemize}
+
+\paragraph{}
+
+Atribuição de valores a variáveis:
+\begin{itemize}
+    \item Label: uma label é um par Variável-Valor, onde Valor é um dos elementos do domínio da Variável.
+\end{itemize}
+
+\paragraph{}
+
+Solução parcial em que algumas das variáveis já têm valores atribuídos:
+\begin{itemize}
+    \item Compound Label: conjunto de labels incluindo variáveis distintas.
+\end{itemize}
+
+\paragraph{}
+
+A aridade de uma restrição C é o número de variáveis sobre o qual a restrição está definida, ou seja, a cardinalidade do conjunto Vars(C). 
+Todas as restrições podem ser convertidas em restrições binárias.
+
+\paragraph{}
+
+Conversão para restrições binárias: uma restrição n-ária C, definida por k compound labels nas suas variáveis \(X_1\) a \(X_n\), é equivalente a n restrições binárias, \(B_i\), através da adição de uma nova variável Z, cujo domínio é o conjunto 1 a k.
+
+\paragraph{}
+
+Forward Checking:
+\begin{itemize}
+    \item Verifica as restrições entre a variável corrente (e anteriores) e as variáveis futuras.
+    \item Quando um valor é atribuído à variável corrente, qualquer valor de uma variável futura que entre em conflito com esta atribuição é (temporariamente) removido do seu domínio.
+\end{itemize}
+
+\end{document}
+

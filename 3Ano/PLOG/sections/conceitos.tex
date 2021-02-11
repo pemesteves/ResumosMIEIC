@@ -1,0 +1,162 @@
+\documentclass[../resumosPLOG.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+Factos: afirmar que uma relação entre objetos é verdadeira.
+\begin{itemize}
+    \item Exemplo: father(abraham, isaac)
+    \begin{itemize}
+        \item Relação ou predicado: father.
+        \item Objetos ou indivíduos: abraham, isaac.
+    \end{itemize}
+\end{itemize}
+
+\paragraph{}
+
+Convenções sintáticas:
+\begin{itemize}
+    \item Nomes de predicados e objetos começam com minúscula (átomos).
+    \item Frases terminam com ponto final.
+\end{itemize}
+
+\paragraph{}
+
+Um conjunto finito de factos é um programa em lógica.
+
+\paragraph{}
+
+Variável Lógica: representa um indivíduo não especificado.
+\begin{itemize}
+    \item Não é uma posição de memória onde se coloca um valor!
+    \item Convenção: começa por maiúscula.
+\end{itemize}
+
+\paragraph{} 
+
+Termos: constantes, variáveis, estruturas (termos complexos).
+
+\paragraph{}
+
+Estruturas: functor. Exemplos: s(0), hot(milk), name(john, doe)...
+\begin{itemize}
+    \item nome(um átomo)
+    \item aridade(número de argumentos): s/1, hot/1, name/2
+\end{itemize}
+
+\paragraph{}
+
+Termos:
+\begin{itemize}
+    \item sem variáveis: ground (totalmente instanciado)
+    \item com variáveis: nonground
+\end{itemize}
+
+\paragraph{}
+
+Conjunção de objetivos: a vírgula corresponde ao "e" lógico (\(\wedge\)).
+
+\paragraph{}
+
+Procedimento: coleção de regras com o mesmo predicado na cabeça.
+
+\paragraph{}
+
+Um programa em lógica é um conjunto finito de regras.
+O significado de um programa em lógica P, M(P), é o conjunto de objetivos totalmente instanciados dedutíveis de P (se o programa apenas tem factos, o seu significado é o próprio programa).
+
+\paragraph{}
+
+Uma base de dados em lógica contém:
+\begin{itemize}
+    \item Factos: permitem definir relações, como em bases de dados relacionais.
+    \item Regras: permitem definir perguntas relacionais complexas (vistas).
+\end{itemize}
+
+\paragraph{}
+
+Programa recursivo linear: o corpo da regra recursiva tem apenas um objetivo recursivo.
+\begin{lstlisting}
+    ancestor(Ancestor, Descendant) :-
+        parent(Ancestor, Descendant).
+    ancestor(Ancestor, Descendant) :- 
+        parent(Ancestor, Person), ancestor(Person, Descendant).
+\end{lstlisting}
+
+\paragraph{}
+
+Uma lista é uma estrutura de dados binária: .(X, Y)
+\begin{itemize}
+    \item 1º argumento (cabeça): elemento; 2º argumento (cauda): resto da lista.
+    \item Símbolo constante para fim da recursão: lista vazia (nil ou []).
+    \item Sintaxe alternativa: \(.(X, Y) \equiv [X | Y]\)
+    \item Os seus elementos podem ser quaisquer termos.
+    \item Predicados importantes:
+    \begin{itemize}
+        \item Membro de uma lista: member(X, L)
+        \begin{itemize}
+            \item Verifica se um elemento X é membro da lista L.
+            \item Obtém um elemento da lista L.
+            \item Obtém uma lista que contém um elemento X.
+        \end{itemize}
+        \item Prefixo: prefix(L1, L)
+        \item Sufixo: suffix(L1, L)
+        \item Sublista: sublist(L1, L)
+        \item Concatenação de listas: append(L1, L2, L)
+        \item Inversão de uma lista: reverse(L1, L)
+        \item Comprimento de uma lista: length(L, Length)
+        \item Eliminar elementos: delete(L, X, NL)
+        \item Selecionar elemento: select(X, L1, L)
+        \item Permutações: permutation(L1, L)
+    \end{itemize}
+\end{itemize}
+
+\paragraph{}
+
+Frase consistente: tem uma instância verdadeira.
+
+\paragraph{}
+
+Frase inválida: tem uma instância falsa.
+
+\paragraph{}
+
+Um unificador de dois termos é uma substituição que os torna idênticos, portanto, um unificador encontra uma instância comum.
+
+\paragraph{}
+
+Condições de unificação:
+\begin{itemize}
+    \item Variável com Variável: unificam sempre.
+    \item Atómico com Atómico: unificam se os valores forem iguais.
+    \item Atómico ou Estrutura com Variável: unificam sempre.
+    \item Estrutura com Estrutura: unificam se os functores são iguais, o número de argumentos é igual e os argumentos unificam dois a dois.
+\end{itemize}
+
+\paragraph{}
+
+Regras de Dedução:
+\begin{itemize}
+    \item 1ª - Identidade: de P deduzir P?
+    \begin{itemize}
+        \item Uma pergunta é uma consequência lógica de um facto idêntico.
+    \end{itemize}
+    \item 2ª - Generalização: de P\(\theta\) deduzir P?
+    \begin{itemize}
+        \item Uma pergunta existencial é uma consequência lógica de uma instância sua.
+    \end{itemize}
+    \item 3ª - Instanciação: de P deduzir P\(\theta\)
+    \begin{itemize}
+        \item De um facto quantificado universalmente, deduz-se uma instância sua.
+    \end{itemize}
+    \item 4ª - Modus Ponens Universal: de \(A \xleftarrow{} B_1, ..., B_n\) e de \(B_1\theta, ..., B_n\theta\) deduzir \(A\theta\)
+    \begin{itemize}
+        \item Da instanciação do corpo de uma regra podemos deduzir a instanciação da cabeça.
+    \end{itemize}
+\end{itemize}
+
+\end{document}
+
