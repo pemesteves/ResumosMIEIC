@@ -1,0 +1,55 @@
+\documentclass[../resumosTCOM.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+Controlador de estados finitos (número de estados finitos).
+
+\paragraph{}
+
+Fita com comprimento infinito que consiste em células (cada célula pode conter um símbolo).
+
+\paragraph{}
+
+Input: string finita, que consiste em símbolos do alfabeto do input, colocada no início da fita (todas as outras células são marcadas com B).
+
+\paragraph{}
+
+Símbolos na fita: alfabeto do input + blank (B) + outros símbolos necessários.
+
+\paragraph{}
+
+TM T = (\(Q, \sum, \Gamma, \delta, q_0, B, F\))
+\begin{itemize}
+    \item Q: estados da TM.
+    \item $\sum$: alfabeto do input.
+    \item $\Gamma$: alfabeto da fita.
+    \item $\delta$: função de transição.
+    \item $q_0$: estado inicial.
+    \item B: blank.
+    \item F: conjunto dos estados finais.
+\end{itemize}
+
+\paragraph{}
+
+Transições entre estados ($0/X \rightarrow$):
+\begin{itemize}
+    \item 0: símbolodo input.
+    \item X: símbolo colocado na fita.
+    \item $\rightarrow$: direção da leitura.
+\end{itemize}
+
+\paragraph{}
+
+$\delta(q, X) = (p, Y, D)$
+\begin{itemize}
+    \item q e p: estados inicial e final da transição.
+    \item X e Y: símbolos da fita (o que está na fita e o que fica na fita, respetivamente).
+    \item D: direção da leitura.
+\end{itemize}
+
+\end{document}
+

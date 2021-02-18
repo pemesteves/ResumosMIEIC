@@ -1,0 +1,61 @@
+\documentclass[../resumosTCOM.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+\textbf{Chomsky Normal Form (CNF)}: simplificação de CFGs
+\begin{itemize}
+    \item Eliminação de símbolos não usados.
+    \item Eliminação de produções $\epsilon$.
+    \item Eliminação de produções unitárias.
+    \item Variáveis dos terminais quando estão juntos são isoladas.
+    \item Substitui-se os terminais por estas variáveis.
+    \item Substituem-se corpos longos.
+\end{itemize}
+
+\paragraph{}
+
+Verificar se uma string pertence a uma CFL
+\begin{itemize}
+    \item \textbf{Cocke-Younger-Kasami (CYK) Algorithm}
+    \begin{itemize}
+        \item $x_{ij}$: representa o conjunto de variáveis que produz a string i-j.
+        \item $O(N^3)$ usando programação dinâmica, preenche-se a tabela ($a_1a_2a_3a_4$ é a string de input):
+        
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{llll}
+            \hline
+            \multicolumn{1}{|l|}{$x_{14}$} & \multicolumn{1}{l|}{}         & \multicolumn{1}{l|}{}         & \multicolumn{1}{l|}{}         \\ \hline
+            \multicolumn{1}{|l|}{$x_{13}$} & \multicolumn{1}{l|}{$x_{24}$} & \multicolumn{1}{l|}{}         & \multicolumn{1}{l|}{}         \\ \hline
+            \multicolumn{1}{|l|}{$x_{12}$} & \multicolumn{1}{l|}{$x_{23}$} & \multicolumn{1}{l|}{$x_{34}$} & \multicolumn{1}{l|}{}         \\ \hline
+            \multicolumn{1}{|l|}{$x_{11}$} & \multicolumn{1}{l|}{$x_{22}$} & \multicolumn{1}{l|}{$x_{33}$} & \multicolumn{1}{l|}{$x_{44}$} \\ \hline
+            $a_1$                          & $a_2$                         & $a_3$                         & $a_4$                        
+            \end{tabular}
+        \end{table}
+        \[X_{13} = X_{12}X_{22} \cup X_{11}X_{23}\]
+    \end{itemize}
+\end{itemize}
+
+\paragraph{}
+
+\textbf{Pumping Lemma para CFLs}
+\begin{itemize}
+    \item Assume-se que L é uma CFL.
+    \item Então, existe uma constante n com a qual, para todo o z em L com \(|z| \geq n\), conseguimos escrever z = uvwxy:
+    \begin{itemize}
+        \item \(|vwx| \leq n\)
+        \item \(vx \neq \epsilon\) (pelo menos uma, v ou x, não pode ser a string vazia)
+        \item Para todo \(i \geq 0\), \(uv^iwx^iy\)
+    \end{itemize}
+\end{itemize}
+
+\paragraph{}
+
+Interseção de uma LR com uma CFL resulta numa CFL.
+
+\end{document}
+

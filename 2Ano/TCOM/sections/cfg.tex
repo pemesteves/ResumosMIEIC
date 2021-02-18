@@ -1,0 +1,46 @@
+\documentclass[../resumosTCOM.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+Notação que permite especificar linguagens não regulares (algumas).
+
+\paragraph{}
+
+CFG G = (V, T, P, S) -> tuplo das CFGs
+\begin{itemize}
+    \item V: variáveis da linguagem
+    \item T: terminais, ou seja, símbolos usados nas strings (alfabeto)
+    \item P: produções ou regras da linguagem
+    \item S: símbolo (variável) inicial
+\end{itemize}
+
+\paragraph{}
+
+Derivação: a partir de uma string, aplicam-se as "regras" da linguagem
+\begin{itemize}
+    \item Leftmost ($\xRightarrow[lm]{*}$): substituem-se primeiro as variáveis à esquerda.
+    \item Rightmost ($\xRightarrow[rm]{*}$): substituem-se primeiro as variáveis à direita.
+\end{itemize}
+
+\paragraph{}
+
+Syntax trees (árvores de análise)
+\begin{itemize}
+    \item Estrutura de dados mais usada para representar o programa de input num compilador
+    \item Cada nó representa uma variável da gramática, um terminal ou $\epsilon$
+\end{itemize}
+
+\paragraph{}
+
+Eliminação de ambiguidade: podem-se adicionar novas variáveis para distinguir níveis de prioridade e regras de associação.
+
+\paragraph{}
+
+Uma CFL é ambígua se todas as gramáticas para L são ambíguas.
+
+\end{document}
+

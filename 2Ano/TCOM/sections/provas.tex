@@ -1,0 +1,23 @@
+\documentclass[../resumosTCOM.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+Métodos de Prova [if H then C (H \(\rightarrow\) C)]
+\begin{itemize}
+    \item Por Contradição [H and not C implies falsehood]
+    \item Por Contra-exemplo: mostrar um exemplo que prova que a proposição é falsa
+    \item Por Contra-positivo [if not C then not H]: provar um é provar o outro
+    \item Por Indução (provar S(n)):
+    \begin{itemize}
+        \item Caso base (Provar S(i), sendo i o 1º valor, normalmente 0 ou 1)
+        \item Passo indutivo (Assumindo a hipótese, prova-se S(n+1))
+        \item Sendo n um número geral, a propriedade aplica-se a todos os n
+    \end{itemize}
+\end{itemize}
+
+\end{document}
+

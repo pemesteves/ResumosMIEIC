@@ -1,0 +1,32 @@
+\documentclass[../resumosTCOM.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+$\epsilon$-NFA: NFA com transições \(\epsilon\)
+
+\paragraph{}
+
+$\epsilon$-NFA E = (\(Q, \sum, \delta, q_0, F\))
+\begin{itemize}
+    \item Maior diferença é que a função de transição \(\delta\) lida com \(\epsilon\).
+    \begin{itemize}
+        \item \(\delta(q, a)\): estado \(q in Q\) e \(a in \sum \bigcup \{\epsilon\}\)
+    \end{itemize}
+    \item \(\epsilon\) representa transições espontâneas.
+    \item Para saber quais os estados que conseguimos alcançar a partir de um estado q com \(\epsilon\), calculamos o $\epsilon$-close(q). Exemplos:
+    \begin{itemize}
+        \item $\epsilon$-close\((q_0) = \{q_0, q_1\}\)
+        \item $\epsilon$-close\((q_3) = \{q_3, q_5\}\)
+    \end{itemize}
+\end{itemize}
+
+\paragraph{}
+
+Para um dado $\epsilon$-NFA existe sempre um DFA equivalente.
+
+\end{document}
+

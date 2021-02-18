@@ -1,0 +1,75 @@
+\documentclass{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage{minted}
+\usepackage{graphicx}
+\usepackage{subfiles}
+\usepackage{blindtext}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{array}
+\usepackage{natbib}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{subfig}
+\usepackage{tabularx}
+
+
+\graphicspath{{images/}{../images/}}
+
+\title{Resumos TCOM}
+\author{MIEIC}
+ 
+\begin{document}
+  
+\maketitle
+
+\tableofcontents
+
+\section{Introdução}
+
+\subfile{sections/intro}
+
+\section{Provas}
+
+\subfile{sections/provas}
+
+\section{Deterministic Finite Automata (DFA)}
+
+\subfile{sections/dfa}
+
+\section{Non-deterministic Finite Automata (NFA)}
+
+\subfile{sections/nfa}
+
+\section{$\epsilon$-NFAs}
+
+\subfile{sections/enfa}
+
+\section{Regular Expressions}
+
+\subfile{sections/regex}
+
+\section{Regular Languages' Properties}
+
+\subfile{sections/rl_prop}
+
+\section{Context-free Grammar (CFG)}
+
+\subfile{sections/cfg}
+
+\section{Pushdown Automata (PDA)}
+
+\subfile{sections/pda}
+
+\section{Context-free Languages (CFL)}
+
+\subfile{sections/cfl}
+
+\section{Turing Machine (TM)}
+
+\subfile{sections/tm}
+
+\end{document} 

@@ -1,0 +1,79 @@
+\documentclass[../resumosTCOM.tex]{subfiles}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document} 
+
+O PDA (pushdown automata) é um $\epsilon$-NFA com uma stack de símbolos
+\begin{itemize}
+    \item Adiciona a possibilidade de memorizar uma quantidade infinita de informação.
+    \item O PDA só tem acesso ao topo da stack (LIFO).
+    \item Como funciona?
+    \begin{itemize}
+        \item A unidade de controlo lê e consome os símbolos do input.
+        \item Transição para um novo estado baseado no estado atual, símbolo do input e símbolo no topo da stack.
+        \item Transições espontâneas com $\epsilon$.
+        \item Topo da stack substituído por símbolos.
+    \end{itemize}
+\end{itemize}
+
+\paragraph{}
+
+PDA P = (\(Q, \sum, \Gamma, \delta, q_0, Z_0, F\))
+\begin{itemize}
+    \item Q: conjunto dos estados.
+    \item $\sum$: alfabeto.
+    \item $\Gamma$: alfabeto finito da stack.
+    \item $\delta$: função de transição.
+    \item $q_0$: estado inicial.
+    \item $Z_0$: símbolo incial da stack.
+    \item F: conjunto dos estados finais (se for um PDA de estado final).
+\end{itemize}
+
+\paragraph{}
+
+Transições representadas cmo a, X/$\alpha$
+\begin{itemize}
+    \item a: símbolo do input consumido.
+    \item X: topo da stack (que será retirado - pop).
+    \item $\alpha$: string a colocar na stack (push) - valor mais à esquerda ficará no topo da stack.
+\end{itemize}
+
+\paragraph{}
+
+Descrição instantânea (q, $\omega$, $\gamma$) - (ID):
+\begin{itemize}
+    \item q: estado.
+    \item $\omega$: input restante.
+    \item $\gamma$: conteúdo da stack.
+\end{itemize}
+
+\paragraph{}
+
+As CFLs definidas por uma CFG são as linguagens aceites por um PDA por empty stack e também aceites por um PDA por final state.
+
+\paragraph{}
+
+Conversão de PDAs em CFGs:
+\begin{itemize}
+    \item O evento principal do processamento de um PDA é retirar um símbolo da stack enquanto se consome o input.
+    \item Adicionam-se variáveis à gramática para cada:
+    \begin{itemize}
+        \item eliminação de um símbolo da stack X.
+        \item transiçã de p para q eliminando X, representado pelo símbolo composto [pXq]
+    \end{itemize}
+\end{itemize}
+
+\paragraph{}
+
+Determinismo; \(|\delta(q, s, t)| + |\delta(q, \epsilon, t)| \leq 1\)
+\begin{itemize}
+    \item q: estado.
+    \item s: input.
+    \item t: topo da stack.
+\end{itemize}
+
+\end{document}
+
